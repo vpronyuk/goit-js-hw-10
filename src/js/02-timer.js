@@ -36,11 +36,13 @@ function onTimerStart() {
   const targetTime = new Date(calendar.selectedDates[0]).getTime();
 
   timerId = setInterval(() => {
+    startBtn.disabled = true;
     const currentTime = Date.now();
     const deltaTime = targetTime - currentTime;
     if (deltaTime <= 0) {
       clearInterval(timerId);
       Notiflix.Notify.info('Timer is stopped now!');
+      startBtn.disabled = false;
     } else {
       const { days, hours, minutes, seconds } = convertMs(deltaTime);
       console.log(`${days}:${hours}:${minutes}:${seconds}`);
