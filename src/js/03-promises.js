@@ -12,8 +12,8 @@ formBtn.addEventListener('click', onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
   let delay = 0;
-  for (let position = 1; position <= amountRef.value; position++) {
-    delay = delayRef.value + stepRef.value * (position - 1);
+  for (let position = 1; position <= Number(amountRef.value); position++) {
+    delay = Number(delayRef.value) + Number(stepRef.value) * (position - 1);
     createPromise(position, delay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
