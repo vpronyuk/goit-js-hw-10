@@ -14,6 +14,13 @@ inputField.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput(evt) {
   inputQuery = evt.target.value.trim();
+
+  if (inputQuery === '') {
+    resetCountryCard();
+    resetCountryList();
+    return;
+  }
+
   fetchCountries(inputQuery)
     .then(response => {
       if (!response.ok) {
