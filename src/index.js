@@ -1,4 +1,5 @@
 import './css/styles.css';
+
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
 import fetchCountries from './js/fetchCountries';
@@ -16,8 +17,9 @@ function onInput(evt) {
   inputQuery = evt.target.value.trim();
 
   if (inputQuery === '') {
-    resetCountryCard();
     resetCountryList();
+    resetCountryCard();
+
     return;
   }
 
